@@ -38,6 +38,7 @@ function initGame(initFunc, drawFunc) {
 	startTime = new Date().getTime();
 
 	gl.enable(gl.BLEND);
+	gl.enable(gl.DEPTH_TEST);
 	gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
 	gl.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -112,7 +113,7 @@ function startGameLoop() {
 		window.requestAnimFrame(render_rec, canvas);
 
 		gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
-		gl.clear(gl.COLOR_BUFFER_BIT);
+		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BITs);
 
 		deltaTime = new Date().getTime() / 1000.0 - startTime;
 		startTime = new Date().getTime() / 1000.0;
