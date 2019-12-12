@@ -35,7 +35,7 @@ function initGame(initFunc, drawFunc) {
 		"Vendor: " + 
 			gl.getParameter(gl.VENDOR);
 
-	startTime = new Date().getTime();
+	startTime = new Date().getTime() / 1000.0;
 
 	gl.enable(gl.BLEND);
 	gl.enable(gl.DEPTH_TEST);
@@ -192,6 +192,10 @@ function createShader(vertID, fragID, attribs, uniforms) {
 
 function setUniform1i(shaderProgram, location, value) {
 	gl.uniform1i(shaderProgram.uniforms[location], value);
+}
+
+function setUniform1f(shaderProgram, location, value) {
+	gl.uniform1f(shaderProgram.uniforms[location], value);
 }
 
 function setUniformMat4(shaderProgram, location, value) {
